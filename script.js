@@ -96,11 +96,51 @@ closeProject();
 });
 
 
+function openCertificate(image,title,issuer){
+
+const modal = document.getElementById("certModal");
+
+document.getElementById("certModalImage").src = image;
+
+document.getElementById("certModalTitle").textContent = title;
+
+document.getElementById("certModalIssuer").textContent = issuer;
+
+modal.classList.add("active");
+
+document.body.classList.add("no-scroll");
+
+}
+
+
+function closeCertificate(){
+
+const modal = document.getElementById("certModal");
+
+modal.classList.remove("active");
+
+document.body.classList.remove("no-scroll");
+
+}
+
+
+document.getElementById("certModal").addEventListener("click",function(event){
+
+if(event.target === this){
+
+closeCertificate();
+
+}
+
+});
+
+
 document.addEventListener("keydown",function(event){
 
 if(event.key === "Escape"){
 
 closeProject();
+closeCertificate();
 
 }
 
